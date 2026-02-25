@@ -46,7 +46,7 @@ export type WallyPage = {
 };
 
 export const primaryNav: NavItem[] = [
-  { href: "/", label: "Portal" },
+  { href: "/landing", label: "Portal" },
   { href: "/shops", label: "Shops" },
   { href: "/roadmap", label: "Roadmap" },
   { href: "/updates", label: "Updates" },
@@ -55,7 +55,7 @@ export const primaryNav: NavItem[] = [
 ];
 
 export const footerNav: NavItem[] = [
-  { href: "/", label: "Portal" },
+  { href: "/landing", label: "Portal" },
   { href: "/shops", label: "Shops" },
   { href: "/wallydex", label: "Wallydex" },
   { href: "/game", label: "Game" },
@@ -73,7 +73,7 @@ export const footerNav: NavItem[] = [
 const pages: Record<PageKey, WallyPage> = {
   portal: {
     key: "portal",
-    href: "/",
+    href: "/landing",
     label: "Portal",
     artwork: "/wv-vio.png",
     banner: "Enter The Wallyverse",

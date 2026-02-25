@@ -3,7 +3,7 @@ import Link from "next/link";
 import { PageFrame } from "@/components/site/PageFrame";
 import { getPage } from "@/lib/wallyverse-content";
 
-export default function PortalPage() {
+export function PortalShowcase() {
   const page = getPage("portal");
 
   return (

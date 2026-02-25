@@ -5,12 +5,12 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Wallyverse",
     short_name: "Wallyverse",
     description: "Portal-first Wallyverse launch app",
-    start_url: "/landing",
+    start_url: "/",
     scope: "/",
     display: "standalone",
     orientation: "portrait",
     background_color: "#07040f",
-    theme_color: "#120726",
+    theme_color: "#05030a",
     categories: ["games", "entertainment", "lifestyle"],
     icons: [
       {

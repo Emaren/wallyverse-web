@@ -1,4 +1,4 @@
-export default function LandingPage() {
+export function LandingHero() {
   return (
     <main className="landing-page" aria-label="Wallyverse Landing">
       <picture className="landing-picture">
