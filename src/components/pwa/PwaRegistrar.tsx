@@ -12,9 +12,56 @@ export function PwaRegistrar() {
       return;
     }
 
+    let updateIntervalId: number | null = null;
+    let didReloadForUpdate = false;
+
+    const handleControllerChange = () => {
+      if (didReloadForUpdate) {
+        return;
+      }
+
+      didReloadForUpdate = true;
+      window.location.reload();
+    };
+
+    navigator.serviceWorker.addEventListener(
+      "controllerchange",
+      handleControllerChange,
+    );
+
     const register = async () => {
       try {
-        await navigator.serviceWorker.register("/sw.js");
+        const registration = await navigator.serviceWorker.register("/sw.js", {
+          updateViaCache: "none",
+        });
+
+        const requestImmediateActivation = () => {
+          if (registration.waiting) {
+            registration.waiting.postMessage({ type: "SKIP_WAITING" });
+          }
+        };
+
+        registration.addEventListener("updatefound", () => {
+          const installing = registration.installing;
+          if (!installing) {
+            return;
+          }
+
+          installing.addEventListener("statechange", () => {
+            if (
+              installing.state === "installed" &&
+              navigator.serviceWorker.controller
+            ) {
+              requestImmediateActivation();
+            }
+          });
+        });
+
+        requestImmediateActivation();
+        await registration.update();
+        updateIntervalId = window.setInterval(() => {
+          void registration.update().catch(() => {});
+        }, 5 * 60 * 1000);
       } catch (error) {
         console.error("Service worker registration failed", error);
       }
@@ -28,6 +75,13 @@ export function PwaRegistrar() {
 
     return () => {
       window.removeEventListener("load", register);
+      navigator.serviceWorker.removeEventListener(
+        "controllerchange",
+        handleControllerChange,
+      );
+      if (updateIntervalId !== null) {
+        window.clearInterval(updateIntervalId);
+      }
     };
   }, []);
 
