@@ -716,3 +716,56 @@ a {
   object-fit: cover;
   object-position: center center;
 }
+
+.offline-page {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 2rem);
+  background:
+    radial-gradient(circle at 15% 20%, #5e2ca920 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, #2585ff20 0%, transparent 40%),
+    linear-gradient(180deg, #140b24 0%, #07040f 100%);
+}
+
+.offline-card {
+  width: min(660px, 100%);
+  border: 1px solid #8d5aff55;
+  border-radius: 1rem;
+  padding: clamp(1rem, 4vw, 2rem);
+  background:
+    linear-gradient(155deg, #2d1847d9 0%, #1a112ddf 50%, #100a1ddd 100%),
+    radial-gradient(circle at 100% 0, #68d4ff1f 0%, transparent 45%);
+  box-shadow:
+    0 0 0 1px #ffd0901a inset,
+    0 10px 34px #08020fbf,
+    0 0 32px #58259b52;
+  text-align: center;
+}
+
+.offline-card h1 {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-heading), Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: clamp(1.4rem, 4vw, 2.3rem);
+}
+
+.offline-card p {
+  margin: 0.8rem auto 0;
+  max-width: 42ch;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  line-height: 1.45;
+}
+
+.offline-eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.74rem;
+  color: var(--ink-soft);
+}
+
+.offline-card .sigil-button {
+  margin-top: 1rem;
+}

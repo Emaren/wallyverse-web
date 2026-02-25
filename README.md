@@ -1,6 +1,6 @@
 # Wallyverse Web
 
-Next.js 13-page cinematic brochure scaffold.
+Next.js 14-page cinematic brochure scaffold + PWA support.
 
 ## Run
 
@@ -20,3 +20,10 @@ Open [http://localhost:3000](http://localhost:3000).
   - dev: `http://localhost:8000/v1/waitlist`
   - prod: `/api/v1/waitlist`
   - override: `${NEXT_PUBLIC_API_BASE_URL}/v1/waitlist`
+
+## PWA
+
+- Manifest route: `/manifest.webmanifest`
+- Service worker: `/sw.js` (registered in production only)
+- Offline fallback route: `/offline`
+- Install icons: `public/icons/*`
