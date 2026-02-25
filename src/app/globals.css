@@ -706,11 +706,7 @@ a {
   width: 100vw;
   height: 100dvh;
   min-height: 100dvh;
-  background-color: #05030a;
-  background-image: url("/pwv.png");
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
+  background: #05030a;
   overflow: hidden;
 }
 
@@ -724,27 +720,14 @@ a {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center top;
-  transform: scale(0.92);
-  transform-origin: center top;
+  object-fit: cover;
+  object-position: center center;
 }
 
 @supports (height: 100svh) {
   .landing-page {
     height: 100svh;
     min-height: 100svh;
-  }
-}
-
-@media (max-width: 900px) {
-  .landing-page {
-    background-image: url("/wv-mobile.png");
-  }
-
-  .landing-image {
-    transform: scale(0.82);
-    object-position: center 1.2rem;
   }
 }
 
