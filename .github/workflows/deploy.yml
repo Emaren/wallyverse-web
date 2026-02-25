@@ -37,5 +37,16 @@ jobs:
       - name: Verify live endpoints
         run: |
           set -euo pipefail
-          curl -fsS https://wallyverse.tokentap.ca/ > /dev/null
-          curl -fsS https://wallyverse.tokentap.ca/api/v1/stats > /dev/null
+          for _ in $(seq 1 20); do
+            if curl -fsS https://wallyverse.tokentap.ca/ > /dev/null && \
+               curl -fsS https://wallyverse.tokentap.ca/api/v1/stats > /dev/null; then
+              echo "Web + API proxy checks passed."
+              exit 0
+            fi
+
+            echo "Waiting for services to become healthy..."
+            sleep 3
+          done
+
+          echo "Health checks failed after retries."
+          exit 1
