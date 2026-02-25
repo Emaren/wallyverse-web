@@ -704,7 +704,15 @@ a {
   overflow: hidden;
 }
 
+.landing-picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
 .landing-image {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center center;
 }
