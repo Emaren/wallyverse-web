@@ -16,4 +16,7 @@ Open [http://localhost:3000](http://localhost:3000).
 - Shared shell and nav live in `src/app/(site)/layout.tsx`
 - The animated backdrop is `src/components/site/SwirlField.tsx`
 - Page content model is `src/lib/wallyverse-content.ts`
-- Waitlist form posts to `${NEXT_PUBLIC_API_BASE_URL}/v1/waitlist`
+- Waitlist form defaults:
+  - dev: `http://localhost:8000/v1/waitlist`
+  - prod: `/api/v1/waitlist`
+  - override: `${NEXT_PUBLIC_API_BASE_URL}/v1/waitlist`
